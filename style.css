@@ -1,0 +1,243 @@
+/* Variáveis de Cores (Alto Contraste e Harmonia) */
+:root {
+    --cor-principal: #2e6f40;
+    --cor-secundaria: #8b5a2b;
+    --cor-escura: #222222;
+    --cor-clara: #f4f6f4;
+    --cor-branca: #ffffff;
+    --fonte: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Reset básico e Acessibilidade */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--fonte);
+    color: var(--cor-escura);
+    line-height: 1.6;
+}
+
+/* Link invisível para leitores de tela */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: var(--cor-branca);
+    color: var(--cor-principal);
+    padding: 10px;
+    outline: 2px solid var(--cor-principal);
+}
+
+/* Layout Geral */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+.bg-alt {
+    background-color: var(--cor-clara);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--cor-principal);
+    font-size: 2rem;
+}
+
+/* Header & Menu */
+header {
+    background-color: var(--cor-branca);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: var(--cor-secundaria);
+}
+
+.logo h1 span {
+    color: var(--cor-principal);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--cor-escura);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a:focus {
+    color: var(--cor-principal);
+    outline: 2px dashed var(--cor-principal);
+    outline-offset: 4px;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1592417817098-8f3d6eb18865?auto=format&fit=crop&w=1200&q=80') center/cover;
+    color: var(--cor-branca);
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-principal {
+    display: inline-block;
+    background-color: var(--cor-principal);
+    color: var(--cor-branca);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-principal:hover {
+    background-color: #21512e;
+}
+
+/* Grids Avançados e Responsivos */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Imagens Dinâmicas */
+.image-box {
+    width: 100%;
+    height: 300px;
+    background-color: #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image-box img, .galeria-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Cards */
+.card {
+    background: var(--cor-branca);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.card-img {
+    height: 180px;
+    background-color: #ddd;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: var(--cor-secundaria);
+}
+
+.sub-center {
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    background-color: var(--cor-escura);
+    color: var(--cor-branca);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+/* Responsividade Menu Mobile */
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: var(--cor-branca);
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .nav-links.active { display: flex; }
+}
